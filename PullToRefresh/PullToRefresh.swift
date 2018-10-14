@@ -31,7 +31,7 @@ open class PullToRefresh: NSObject {
     open var hideDelay: TimeInterval = 0
     open var springDamping: CGFloat = 0.4
     open var initialSpringVelocity: CGFloat = 0.8
-    open var animationOptions: UIViewAnimationOptions = [.curveLinear]
+    open var animationOptions: UIView.AnimationOptions = [.curveLinear]
     open var shouldBeVisibleWhileScrolling: Bool = false
     
     let refreshView: UIView
@@ -339,7 +339,7 @@ private extension PullToRefresh {
         guard let scrollView = scrollView else { return }
         scrollView.addSubview(refreshView)
         refreshView.frame = scrollView.defaultFrame(forPullToRefresh: self)
-        scrollView.sendSubview(toBack: refreshView)
+        scrollView.sendSubviewToBack(refreshView)
     }
     
 }
